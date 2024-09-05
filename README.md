@@ -423,3 +423,210 @@ In this chapter, we revisited the fundamental concepts of Java, such as data typ
 
 ### Next Chapter: Classes and Objects
 
+### **Chapter 3: Classes and Objects**
+
+In Object-Oriented Programming (OOP), classes and objects are the fundamental building blocks. Java uses classes to define the blueprint of an object, and objects are instances of classes. In this chapter, we will explore how to create and use classes and objects in Java.
+
+#### **3.1 What are Classes and Objects?**
+
+- **Class:** A class is a template or blueprint for creating objects. It defines the properties (fields or variables) and behaviors (methods) that objects created from the class can have.
+- **Object:** An object is an instance of a class. When a class is instantiated (created), it forms an object. Each object has its own state, defined by its fields, and behavior, defined by its methods.
+
+**Example:**
+```java
+public class Car {
+    // Fields (attributes)
+    String brand;
+    int speed;
+
+    // Methods (behaviors)
+    void accelerate() {
+        speed += 10;
+        System.out.println("Accelerating... Speed is now: " + speed);
+    }
+
+    void brake() {
+        speed -= 10;
+        System.out.println("Braking... Speed is now: " + speed);
+    }
+}
+```
+
+In the above example, `Car` is a class, and it has two fields (`brand` and `speed`) and two methods (`accelerate` and `brake`).
+
+#### **3.2 Creating Objects from Classes**
+
+Once a class is defined, we can create objects from it using the `new` keyword. Each object created from a class will have its own state (values of fields).
+
+**Example:**
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Creating an object of the Car class
+        Car myCar = new Car();
+        
+        // Setting the field values
+        myCar.brand = "Toyota";
+        myCar.speed = 0;
+        
+        // Using the object's methods
+        myCar.accelerate();
+        myCar.brake();
+    }
+}
+```
+
+- **`new Car()`**: This creates a new object of the `Car` class.
+- **`myCar`**: This is the reference variable that holds the object.
+- The object’s methods (`accelerate()` and `brake()`) can be called to perform actions on that object.
+
+#### **3.3 Fields and Methods**
+
+- **Fields (Attributes/Properties):** These are variables declared inside a class. Fields represent the state or data of an object.
+- **Methods (Functions):** Methods define the behavior of an object. They are blocks of code designed to perform a specific task.
+
+**Example:**
+```java
+public class Dog {
+    String breed;
+    int age;
+    
+    void bark() {
+        System.out.println("Woof! Woof!");
+    }
+    
+    void displayInfo() {
+        System.out.println("Breed: " + breed + ", Age: " + age);
+    }
+}
+```
+
+In the `Dog` class:
+- Fields: `breed` and `age` represent the state of a dog.
+- Methods: `bark()` and `displayInfo()` define the actions a dog can perform.
+
+#### **3.4 Constructors**
+
+A constructor is a special type of method that is called when an object is instantiated. It is used to initialize the object’s fields with specific values.
+
+- **Default Constructor:** If no constructor is provided, Java provides a default constructor.
+- **Parameterized Constructor:** Allows passing values during object creation.
+
+**Example of a Constructor:**
+```java
+public class Person {
+    String name;
+    int age;
+
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void displayInfo() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+```
+
+**Creating an Object with a Constructor:**
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Creating an object using the constructor
+        Person person = new Person("John", 30);
+        person.displayInfo();
+    }
+}
+```
+
+In this example, the `Person` class has a constructor that takes two arguments (`name` and `age`). The constructor initializes the fields when the object is created.
+
+#### **3.5 The `this` Keyword**
+
+The `this` keyword in Java is a reference to the current object. It is used to differentiate between instance variables (fields) and parameters that have the same name.
+
+**Example:**
+```java
+public class Employee {
+    String name;
+    int id;
+
+    public Employee(String name, int id) {
+        this.name = name; // 'this.name' refers to the instance variable
+        this.id = id;     // 'this.id' refers to the instance variable
+    }
+
+    void displayInfo() {
+        System.out.println("Name: " + this.name + ", ID: " + this.id);
+    }
+}
+```
+
+In the constructor, `this.name` refers to the instance variable `name`, while `name` without `this` refers to the parameter.
+
+#### **3.6 Accessing Fields and Methods**
+
+Fields and methods of an object are accessed using the dot (`.`) operator. We use the reference variable followed by the field or method name.
+
+**Example:**
+```java
+Car myCar = new Car();
+myCar.brand = "Honda";  // Accessing field
+myCar.accelerate();     // Accessing method
+```
+
+#### **3.7 Constructor Overloading**
+
+Java allows you to define multiple constructors with different parameter lists in a class. This is known as **constructor overloading**.
+
+**Example:**
+```java
+public class Student {
+    String name;
+    int grade;
+
+    // Default constructor
+    public Student() {
+        this.name = "Unknown";
+        this.grade = 0;
+    }
+
+    // Parameterized constructor
+    public Student(String name, int grade) {
+        this.name = name;
+        this.grade = grade;
+    }
+
+    void displayInfo() {
+        System.out.println("Name: " + name + ", Grade: " + grade);
+    }
+}
+```
+
+You can create objects using either the default or the parameterized constructor:
+```java
+Student student1 = new Student();               // Calls the default constructor
+Student student2 = new Student("Alice", 90);    // Calls the parameterized constructor
+```
+
+#### **3.8 Destructors in Java**
+
+Java does not have destructors like other programming languages (e.g., C++). Instead, Java has a garbage collector that automatically deallocates memory when objects are no longer needed. However, if you want to perform cleanup before an object is destroyed, you can use the `finalize()` method, although its usage is discouraged as it's not guaranteed when or if it will be executed.
+
+**Example:**
+```java
+protected void finalize() {
+    System.out.println("Object is being destroyed");
+}
+```
+
+#### **3.9 Summary**
+
+In this chapter, we explored the core concepts of **classes** and **objects** in Java. We learned how to define classes, create objects, and use fields and methods. Additionally, we covered constructors, the `this` keyword, and constructor overloading. Understanding these concepts is crucial for working with OOP principles in Java.
+
+---
+
+### Next Chapter: Encapsulation in Java
+In the next chapter, we will dive deeper into one of the key OOP principles: **Encapsulation**, and learn how to protect data in Java using access modifiers, getters, and setters.
