@@ -3,7 +3,7 @@
    - History of Java and OOP
    - Key OOP principles (Encapsulation, Inheritance, Polymorphism, Abstraction)
 
-### **2. Java Basics Refresher**
+### [**2. Java Basics Refresher**](https://github.com/PROGHEIST/OOP-IN-JAVA/blob/main/README.md#chapter-2-java-basics-refresher)
    - Java Syntax Overview
    - Data Types, Variables, and Operators
    - Control Structures (if-else, loops)
