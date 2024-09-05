@@ -1,4 +1,4 @@
-### **1. Introduction to Java and OOP Concepts**
+### **1. Introduction to Java and OOP Concepts**(https://github.com/PROGHEIST/OOP-IN-JAVA/blob/main/README.md#chapter-1-introduction-to-java-and-oop-concepts)
    - What is Object-Oriented Programming?
    - History of Java and OOP
    - Key OOP principles (Encapsulation, Inheritance, Polymorphism, Abstraction)
