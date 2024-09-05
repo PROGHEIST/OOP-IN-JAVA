@@ -9,7 +9,7 @@
    - Control Structures (if-else, loops)
    - Functions and Methods in Java
 
-### **3. Classes and Objects**
+### [**3. Classes and Objects**](https://github.com/PROGHEIST/OOP-IN-JAVA/blob/main/README.md#chapter-3-classes-and-objects)
    - What are Classes and Objects?
    - Creating Objects from Classes
    - The `new` keyword
