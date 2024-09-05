@@ -204,3 +204,222 @@ In this chapter, we introduced the core principles of Object-Oriented Programmin
 
 ### Next Chapter: Java Basics Refresher
 In the next chapter, we will dive into the basic building blocks of Java, including data types, control structures, and methods.
+
+### **Chapter 2: Java Basics Refresher**
+
+Before diving deeper into Object-Oriented Programming (OOP) in Java, it’s essential to revisit some basic concepts of the Java programming language. This will help solidify your understanding of how OOP fits within the broader context of Java development.
+
+#### **2.1 Java Syntax Overview**
+
+Java follows a simple and consistent syntax, which makes it easier to read and write. Here's a quick overview of Java's structure:
+
+- **Java Program Structure:**
+   - A Java program consists of classes, and within classes, we have methods and fields (variables).
+   - A basic Java program starts with a `main` method, which acts as the entry point for execution.
+
+   **Example:**
+   ```java
+   public class HelloWorld {
+       public static void main(String[] args) {
+           System.out.println("Hello, World!");
+       }
+   }
+   ```
+
+   - **Class Definition:** `public class HelloWorld` – defines a class.
+   - **Method:** `public static void main(String[] args)` – the main method where the program starts.
+   - **Statements:** Inside the `main` method, you define statements like `System.out.println("Hello, World!");` to print output to the console.
+
+#### **2.2 Data Types in Java**
+
+Data types specify the type of data that can be stored in variables. Java provides two categories of data types: **Primitive Types** and **Reference Types**.
+
+##### **Primitive Data Types:**
+These are predefined by Java and store simple values.
+
+- **byte:** 1 byte, range -128 to 127.
+- **short:** 2 bytes, range -32,768 to 32,767.
+- **int:** 4 bytes, range -2^31 to 2^31-1 (commonly used for integers).
+- **long:** 8 bytes, range -2^63 to 2^63-1 (use for large integer values).
+- **float:** 4 bytes, single-precision floating point (e.g., 3.14f).
+- **double:** 8 bytes, double-precision floating point (e.g., 3.14159).
+- **char:** 2 bytes, stores a single character (e.g., 'a').
+- **boolean:** 1 bit, stores `true` or `false`.
+
+**Example:**
+```java
+int age = 25;
+double salary = 50000.75;
+boolean isJavaFun = true;
+char grade = 'A';
+```
+
+##### **Reference Data Types:**
+These are objects or arrays. Reference variables store memory addresses of objects.
+
+- **String:** Represents sequences of characters.
+- **Arrays:** Hold multiple values of the same type.
+
+**Example:**
+```java
+String name = "John";
+int[] numbers = {1, 2, 3, 4, 5};
+```
+
+#### **2.3 Variables in Java**
+
+Variables store data values and must be declared before use. Java is a statically typed language, so you must specify the type of the variable.
+
+**Example:**
+```java
+int age = 30; // Declaring an integer variable
+double price = 19.99; // Declaring a double variable
+```
+
+##### **Types of Variables:**
+1. **Local Variables:** Declared inside methods and used within that method only.
+2. **Instance Variables:** Declared inside a class but outside methods; they represent the state of an object.
+3. **Static Variables:** Declared with the `static` keyword and shared by all instances of a class.
+
+**Example of Variables:**
+```java
+public class Person {
+    String name;  // Instance variable
+    static int population = 0; // Static variable
+
+    public void setName(String name) {
+        this.name = name;  // Local variable in method
+    }
+}
+```
+
+#### **2.4 Operators in Java**
+
+Operators in Java are used to perform operations on variables and values. They include:
+
+1. **Arithmetic Operators:**
+   - Addition (`+`), Subtraction (`-`), Multiplication (`*`), Division (`/`), Modulus (`%`)
+
+   **Example:**
+   ```java
+   int result = 10 + 5;  // result = 15
+   ```
+
+2. **Relational Operators:**
+   - Greater than (`>`), Less than (`<`), Equal to (`==`), Not equal to (`!=`), Greater than or equal to (`>=`), Less than or equal to (`<=`)
+
+   **Example:**
+   ```java
+   boolean isAdult = age >= 18;  // Checks if age is greater than or equal to 18
+   ```
+
+3. **Logical Operators:**
+   - AND (`&&`), OR (`||`), NOT (`!`)
+
+   **Example:**
+   ```java
+   boolean isEligible = (age >= 18 && isRegistered);  // Checks if age is greater than or equal to 18 and registered
+   ```
+
+4. **Assignment Operators:**
+   - Assigns values using `=`, and other operators like `+=`, `-=`, `*=`, etc.
+
+   **Example:**
+   ```java
+   int x = 10;
+   x += 5;  // x = x + 5
+   ```
+
+#### **2.5 Control Structures**
+
+Control structures guide the flow of a Java program based on conditions or loops.
+
+##### **If-Else Statements:**
+Used for decision-making.
+
+**Example:**
+```java
+if (age >= 18) {
+    System.out.println("Adult");
+} else {
+    System.out.println("Not an Adult");
+}
+```
+
+##### **Switch Case:**
+Used for multi-way branching based on the value of an expression.
+
+**Example:**
+```java
+int day = 2;
+switch(day) {
+    case 1: System.out.println("Monday"); break;
+    case 2: System.out.println("Tuesday"); break;
+    default: System.out.println("Invalid Day");
+}
+```
+
+##### **Loops:**
+1. **For Loop:**
+   Repeats a block of code a specific number of times.
+   ```java
+   for (int i = 0; i < 5; i++) {
+       System.out.println(i);
+   }
+   ```
+
+2. **While Loop:**
+   Repeats a block of code as long as a condition is true.
+   ```java
+   int i = 0;
+   while (i < 5) {
+       System.out.println(i);
+       i++;
+   }
+   ```
+
+3. **Do-While Loop:**
+   Similar to a `while` loop but guarantees at least one iteration.
+   ```java
+   int i = 0;
+   do {
+       System.out.println(i);
+       i++;
+   } while (i < 5);
+   ```
+
+#### **2.6 Methods in Java**
+
+A method is a block of code that performs a specific task. Methods promote code reusability and modularity.
+
+##### **Defining a Method:**
+```java
+public int addNumbers(int a, int b) {
+    return a + b;
+}
+```
+
+##### **Calling a Method:**
+```java
+int sum = addNumbers(5, 10);
+System.out.println("Sum: " + sum);
+```
+
+##### **Method Parameters and Return Values:**
+- Methods can take arguments (parameters) and return values. If a method doesn’t return a value, it is declared as `void`.
+
+**Example:**
+```java
+public void printMessage() {
+    System.out.println("Hello, Java");
+}
+```
+
+#### **2.7 Summary**
+
+In this chapter, we revisited the fundamental concepts of Java, such as data types, variables, operators, control structures, and methods. These are the basic building blocks that are crucial for understanding the more advanced OOP concepts in Java. In the next chapter, we will explore **Classes and Objects**, which form the foundation of OOP in Java.
+
+---
+
+### Next Chapter: Classes and Objects
+
