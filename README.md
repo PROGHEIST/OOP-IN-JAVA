@@ -22,7 +22,7 @@
    - The `this` Keyword
    - Benefits of Encapsulation
 
-### **5. Inheritance in Java**
+### [**5. Inheritance in Java**](https://github.com/PROGHEIST/OOP-IN-JAVA/blob/main/README.md#chapter-5-inheritance-in-java)
    - Basics of Inheritance
    - The `extends` Keyword
    - Method Overriding
