@@ -90,7 +90,7 @@ Each chapter introduces a new concept, followed by code examples and explanation
 - [Stack Overflow](https://stackoverflow.com/) for troubleshooting and community support.
 
 ## Author
-This course is authored and maintained by **[Your Name]**, a passionate Java developer and educator. If you have any questions, feel free to contact me or contribute to the repository!
+This course is authored and maintained by **PRATIK BHARAT GAONKAR**, a passionate Java developer and educator. If you have any questions, feel free to contact me or contribute to the repository!
 
 ---
 
