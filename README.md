@@ -16,7 +16,7 @@
    - Fields and Methods
    - Constructors and Destructors
 
-### **4. Encapsulation in Java**
+### [**4. Encapsulation in Java**](https://github.com/PROGHEIST/OOP-IN-JAVA/blob/main/README.md#chapter-4-encapsulation-in-java)
    - Access Modifiers (public, private, protected)
    - Getters and Setters
    - The `this` Keyword
