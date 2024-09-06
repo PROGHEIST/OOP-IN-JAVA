@@ -852,3 +852,236 @@ In this chapter, we explored the concept of **encapsulation**, one of the core p
 
 ### Next Chapter: Inheritance in Java
 In the next chapter, we will delve into another key OOP concept: **Inheritance**, which allows one class to inherit fields and methods from another, enabling code reusability and hierarchical class structures.
+
+### **Chapter 5: Inheritance in Java**
+
+Inheritance is one of the key concepts of Object-Oriented Programming (OOP). It allows one class (called the child or subclass) to inherit properties and behaviors (fields and methods) from another class (called the parent or superclass). Inheritance promotes code reusability and establishes a hierarchical relationship between classes.
+
+#### **5.1 What is Inheritance?**
+
+Inheritance allows a new class to acquire the properties and methods of an existing class. The new class is called the **subclass** (child class), and the existing class is called the **superclass** (parent class).
+
+- **Subclass:** The class that inherits the properties and methods.
+- **Superclass:** The class whose properties and methods are inherited.
+
+**Syntax of Inheritance:**
+```java
+class SubclassName extends SuperclassName {
+    // Subclass-specific fields and methods
+}
+```
+
+#### **5.2 Types of Inheritance in Java**
+
+Java supports single inheritance and multilevel inheritance but does not support multiple inheritance (inheriting from more than one class) through classes. However, multiple inheritance can be achieved through interfaces.
+
+- **Single Inheritance:** A subclass inherits from a single superclass.
+- **Multilevel Inheritance:** A subclass inherits from a superclass, and another class can inherit from that subclass.
+
+**Example of Single Inheritance:**
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();  // Inherited method from Animal class
+        dog.bark(); // Dog class method
+    }
+}
+```
+
+In this example, `Dog` inherits the `eat()` method from `Animal` and also has its own `bark()` method.
+
+**Example of Multilevel Inheritance:**
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+class Puppy extends Dog {
+    void weep() {
+        System.out.println("The puppy weeps.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Puppy puppy = new Puppy();
+        puppy.eat();   // Inherited from Animal class
+        puppy.bark();  // Inherited from Dog class
+        puppy.weep();  // Puppy class method
+    }
+}
+```
+
+#### **5.3 The `super` Keyword**
+
+The `super` keyword refers to the parent class and can be used to:
+1. Access superclass methods.
+2. Call the superclass constructor.
+3. Refer to a field from the superclass.
+
+**Example of Using `super` to Access a Superclass Method:**
+```java
+class Animal {
+    void sound() {
+        System.out.println("This is the sound of an animal.");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        super.sound();  // Calling the superclass method
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.sound();  // Calls both the superclass and subclass method
+    }
+}
+```
+
+**Example of Using `super` to Call a Superclass Constructor:**
+```java
+class Animal {
+    Animal() {
+        System.out.println("Animal is created.");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super();  // Calls the constructor of the Animal class
+        System.out.println("Dog is created.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+    }
+}
+```
+
+Output:
+```
+Animal is created.
+Dog is created.
+```
+
+#### **5.4 Method Overriding**
+
+Method overriding occurs when a subclass provides its own implementation of a method that is already defined in the superclass. The overridden method must have the same name, return type, and parameter list as the method in the superclass.
+
+- **Superclass Method:** The method in the parent class.
+- **Subclass Method:** The method in the child class that overrides the superclass method.
+
+**Example of Method Overriding:**
+```java
+class Animal {
+    void sound() {
+        System.out.println("This animal makes a sound.");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Animal();
+        Dog myDog = new Dog();
+
+        myAnimal.sound();  // Outputs: This animal makes a sound.
+        myDog.sound();     // Outputs: The dog barks. (Overridden method)
+    }
+}
+```
+
+#### **5.5 `final` Keyword in Inheritance**
+
+The `final` keyword is used to restrict inheritance. If a class is marked as `final`, it cannot be inherited. Similarly, if a method is marked as `final`, it cannot be overridden by subclasses.
+
+- **Final Class:** A class that cannot be extended.
+- **Final Method:** A method that cannot be overridden.
+
+**Example of a Final Method:**
+```java
+class Animal {
+    final void sound() {
+        System.out.println("This animal makes a sound.");
+    }
+}
+
+class Dog extends Animal {
+    // Cannot override the final method from Animal class
+    // void sound() {
+    //     System.out.println("The dog barks.");
+    // }
+}
+```
+
+**Example of a Final Class:**
+```java
+final class Animal {
+    void sound() {
+        System.out.println("This animal makes a sound.");
+    }
+}
+
+// Cannot inherit from final class Animal
+// class Dog extends Animal {
+//     void sound() {
+//         System.out.println("The dog barks.");
+//     }
+// }
+```
+
+#### **5.6 Advantages of Inheritance**
+
+1. **Code Reusability:** Common fields and methods can be defined in the superclass and reused in subclasses, reducing redundancy.
+2. **Method Overriding:** Allows a subclass to provide a specific implementation of a method already defined in the superclass.
+3. **Modular Code:** Enhances code organization by allowing common functionality to be centralized in superclasses.
+
+#### **5.7 IS-A Relationship**
+
+Inheritance represents an **IS-A** relationship between a superclass and a subclass. For example:
+- A **Dog** IS-A **Animal**.
+- A **Car** IS-A **Vehicle**.
+
+This relationship helps model real-world scenarios in object-oriented design.
+
+#### **5.8 Summary**
+
+In this chapter, we explored the concept of **inheritance**, one of the pillars of OOP. We learned how a subclass can inherit fields and methods from a superclass, and how the `super` keyword can be used to access superclass members. We also covered method overriding and the use of the `final` keyword to restrict inheritance.
+
+---
+
+### Next Chapter: Polymorphism in Java
+In the next chapter, we will explore **Polymorphism**, which allows one object to take on many forms. We'll learn how method overriding and interfaces contribute to this powerful OOP concept.
