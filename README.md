@@ -630,3 +630,225 @@ In this chapter, we explored the core concepts of **classes** and **objects** in
 
 ### Next Chapter: Encapsulation in Java
 In the next chapter, we will dive deeper into one of the key OOP principles: **Encapsulation**, and learn how to protect data in Java using access modifiers, getters, and setters.
+
+
+### **Chapter 4: Encapsulation in Java**
+
+Encapsulation is one of the fundamental principles of Object-Oriented Programming (OOP). It involves wrapping data (fields) and the methods that operate on that data into a single unit or class, and restricting access to some of the object's components to ensure controlled interaction.
+
+#### **4.1 What is Encapsulation?**
+
+Encapsulation is the process of bundling data (variables) and methods (functions) that operate on the data into a single unit (a class). It allows you to hide an object’s internal state and only expose certain information or functionality through methods.
+
+- **Data Hiding:** Encapsulation helps hide the internal state of an object by marking its fields as private and exposing only necessary methods to interact with the object’s data.
+- **Controlled Access:** By using **getters** and **setters**, you can control how fields are accessed or modified.
+
+**Example of Encapsulation:**
+```java
+public class Account {
+    // Private fields (data hiding)
+    private String accountHolder;
+    private double balance;
+
+    // Constructor to initialize the account
+    public Account(String accountHolder, double initialBalance) {
+        this.accountHolder = accountHolder;
+        this.balance = initialBalance;
+    }
+
+    // Getter method for accountHolder
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    // Getter method for balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Method to deposit money (modify balance)
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    // Method to withdraw money (modify balance)
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        }
+    }
+}
+```
+
+In this example:
+- The fields `accountHolder` and `balance` are private, meaning they cannot be accessed directly from outside the class.
+- Public methods (`getAccountHolder`, `getBalance`, `deposit`, and `withdraw`) provide controlled access to the fields.
+
+#### **4.2 Access Modifiers**
+
+Access modifiers in Java are used to control the visibility of classes, fields, constructors, and methods. There are four types of access modifiers:
+
+1. **Private (`private`):** Only accessible within the same class.
+   - Used for encapsulation to hide the data.
+   
+2. **Default (no modifier):** Accessible only within the same package.
+   
+3. **Protected (`protected`):** Accessible within the same package and by subclasses in other packages.
+   
+4. **Public (`public`):** Accessible from anywhere.
+
+**Example of Private Access Modifier:**
+```java
+public class Person {
+    private String name;  // Private field
+
+    // Public method to access the private field
+    public String getName() {
+        return name;
+    }
+
+    // Public method to modify the private field
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+```
+
+#### **4.3 Getters and Setters**
+
+Getters and Setters are public methods used to retrieve (get) and update (set) the value of private fields. They are a key part of encapsulation, allowing controlled access to an object’s data.
+
+**Getter Method:**
+- Used to retrieve the value of a private field.
+```java
+public String getName() {
+    return name;
+}
+```
+
+**Setter Method:**
+- Used to set or modify the value of a private field.
+```java
+public void setName(String name) {
+    this.name = name;
+}
+```
+
+**Example of Getters and Setters:**
+```java
+public class Student {
+    private String name;
+    private int age;
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter for age
+    public int getAge() {
+        return age;
+    }
+
+    // Setter for age
+    public void setAge(int age) {
+        if (age > 0) {
+            this.age = age;
+        }
+    }
+}
+```
+
+**Benefits of Getters and Setters:**
+- **Data Validation:** You can add validation logic within setters to control what values can be assigned to fields.
+- **Read-Only or Write-Only Fields:** You can create read-only fields by providing only a getter method, or write-only fields by providing only a setter method.
+
+#### **4.4 Benefits of Encapsulation**
+
+1. **Improved Security:** Sensitive data is hidden and only accessible through controlled methods.
+2. **Maintainability:** Changes to the class implementation do not affect external code using the class.
+3. **Flexibility:** You can easily modify the internal implementation of the class without breaking other parts of the program.
+4. **Control Over Data:** Encapsulation allows the class to control how its fields are accessed and modified, improving data integrity.
+
+#### **4.5 Example of Encapsulation**
+
+Let’s create an example of an `Employee` class that demonstrates the encapsulation concept:
+
+```java
+public class Employee {
+    // Private fields
+    private String name;
+    private double salary;
+
+    // Constructor
+    public Employee(String name, double salary) {
+        this.name = name;
+        if (salary > 0) {
+            this.salary = salary;
+        }
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter for salary
+    public double getSalary() {
+        return salary;
+    }
+
+    // Setter for salary with validation
+    public void setSalary(double salary) {
+        if (salary > 0) {
+            this.salary = salary;
+        } else {
+            System.out.println("Invalid salary!");
+        }
+    }
+}
+```
+
+In this example, the `Employee` class encapsulates the fields `name` and `salary`. We use getters and setters to control how these fields are accessed and modified.
+
+**Creating an Object and Using Encapsulation:**
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Creating an employee object
+        Employee emp = new Employee("John", 50000);
+
+        // Accessing employee data using getters
+        System.out.println("Name: " + emp.getName());
+        System.out.println("Salary: " + emp.getSalary());
+
+        // Modifying employee data using setters
+        emp.setSalary(60000);
+        System.out.println("Updated Salary: " + emp.getSalary());
+
+        // Trying to set an invalid salary
+        emp.setSalary(-100);
+    }
+}
+```
+
+#### **4.6 Summary**
+
+In this chapter, we explored the concept of **encapsulation**, one of the core principles of OOP in Java. We learned how encapsulation allows for data hiding and controlled access to an object’s internal state. Through **private fields**, **getters**, and **setters**, encapsulation helps make your code more secure, maintainable, and flexible.
+
+---
+
+### Next Chapter: Inheritance in Java
+In the next chapter, we will delve into another key OOP concept: **Inheritance**, which allows one class to inherit fields and methods from another, enabling code reusability and hierarchical class structures.
